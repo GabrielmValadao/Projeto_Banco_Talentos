@@ -1,3 +1,3 @@
 <template>
-    App vue
+    <router-view></router-view>
 </template>
