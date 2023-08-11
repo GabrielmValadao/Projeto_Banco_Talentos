@@ -1,3 +1,3 @@
 <template>
-    
+    App vue
 </template>
