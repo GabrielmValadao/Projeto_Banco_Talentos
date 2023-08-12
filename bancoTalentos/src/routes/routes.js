@@ -9,7 +9,7 @@ import TalentNew from '../views/Talent/New/TalentNew.vue'
 
 
 const router = createRouter({
-    history: import.meta.env.BASE_URL,
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path:'/',
