@@ -22,7 +22,7 @@ const router = createRouter({
             name: 'About',
             component: About
         },
-
+        
         {
             path: '/talentos/novo',
             name: 'TalentNew',
