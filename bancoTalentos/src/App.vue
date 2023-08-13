@@ -54,12 +54,14 @@
   border: 4px solid cadetblue;
   padding: 5px;
   width: 30%;
+  background-color: cadetblue;
 }
 
 .item-lista li {
   display: flex;
   align-items: center;
   gap: 10px;
+  background-color: cadetblue;
   
   
 }
@@ -69,8 +71,13 @@
 }
 
 h2 {
-    color: cadetblue;
+    color: black;
+    background-color: cadetblue;
+    font-weight: bold;
 }
 
+img {
+    background-color: cadetblue;
+}
 
 </style>
