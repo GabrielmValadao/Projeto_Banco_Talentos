@@ -5,8 +5,8 @@
         <li>
           <h2>Home</h2>
           <img
-            width="64"
-            height="64"
+            width="40"
+            height="40"
             src="https://img.icons8.com/glyph-neue/64/home--v1.png"
             alt="imagem home"
           />
@@ -17,8 +17,8 @@
         <li>
           <h2>Talentos</h2>
           <img
-            width="50"
-            height="50"
+            width="40"
+            height="40"
             src="https://img.icons8.com/ios-filled/50/folder-invoices--v2.png"
             alt="imagem talentos"
           />
@@ -29,8 +29,8 @@
         <li>
           <h2>Sobre</h2>
           <img
-            width="64"
-            height="64"
+            width="40"
+            height="40"
             src="https://img.icons8.com/glyph-neue/64/about--v1.png"
             alt="imagem sobre"
           />
@@ -51,7 +51,7 @@
 
 .item-lista {
   display: flex;
-  border: 1px solid black;
+  border: 4px solid cadetblue;
   padding: 5px;
   width: 30%;
 }
@@ -60,6 +60,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: space-between;
+  
+  
 }
+
+.item-lista:link {
+    text-decoration: none; 
+}
+
+h2 {
+    color: cadetblue;
+}
+
+
 </style>
