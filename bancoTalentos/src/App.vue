@@ -53,7 +53,6 @@
   display: flex;
   border: 1px solid black;
   padding: 5px;
-
   width: 30%;
 }
 
@@ -61,7 +60,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-
   justify-content: space-between;
 }
 </style>
