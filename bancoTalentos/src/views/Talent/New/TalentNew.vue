@@ -47,7 +47,7 @@
 
     
     <label for="apresentacao">Carta de apresentação:</label>
-    <textarea id="apresentacao" cols="30" rows="10" v-model="apresentacao">aaaa</textarea>
+    <textarea id="apresentacao" cols="30" rows="10" placeholder="Digite sua carta de recomendação" v-model="apresentacao"></textarea>
 
     <button type="submit">Cadastrar</button>
   </form>
@@ -127,6 +127,11 @@ form {
   width: 50%;
 }
 
+input,textarea {
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .opcoes {
     display: flex;
     flex-direction: column;
@@ -145,4 +150,5 @@ button {
 button:hover {
     background-color: rgb(121, 190, 192);
 }
+
 </style>
