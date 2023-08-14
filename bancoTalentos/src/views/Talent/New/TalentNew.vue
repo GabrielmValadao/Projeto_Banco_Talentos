@@ -55,7 +55,7 @@
 
 <script>
 
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export default {
   data() {
@@ -73,13 +73,30 @@ export default {
 
   method: {
     submit() {
-      const schema = yup.object().shape({
-        name: yup.string().required("Nome é obrigatório!"),
-        email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
-        date_birth: yup.date().required("Selecione uma data válida"),
-        phone: yup.number().required("Informe seu numero de telefone")
-      })
+      try {
+        const schema = yup.object().shape({
+          name: yup.string().required("Nome é obrigatório!"),
+          email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
+          date_birth: yup.date().required("Selecione uma data válida"),
+          phone: yup.number().required("Informe seu numero de telefone"),
+          area: yup.string().required("Informe sua área de interesse!"),
+          nivel: yup.string().required("Informe seu nível de conhecimento!"),
+          skills: yup.string().required("Informe suas habilidades")
+        })
 
+        schema.validateSync({
+          name: this.name,
+          email: this.email,
+          data_birth: this.data_birth,
+          phone: this.phone,
+          area: this.area,
+          nivel: this.nivel,
+          skills: this.skills
+        })
+      }
+      catch(erro) {
+        alert("Erro no formulario")
+      }
       }
     },
 
