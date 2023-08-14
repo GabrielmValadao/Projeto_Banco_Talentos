@@ -31,23 +31,23 @@
     <p>Selecione suas habilidades:</p>
     
     <div class="opcoes" v-if="area === 'frontend' || area === 'fullstack'">
-      <label><input type="checkbox" /> Html</label>
-      <label><input type="checkbox" /> Css</label>
-      <label><input type="checkbox" /> JavaScript</label>
-      <label><input type="checkbox" /> Vue</label>
+      <label><input type="checkbox" value="Html" v-model="skills"/> Html</label>
+      <label><input type="checkbox" value="Css" v-model="skills"/> Css</label>
+      <label><input type="checkbox" value="JavaScript" v-model="skills"/> JavaScript</label>
+      <label><input type="checkbox" value="Vue" v-model="skills"/> Vue</label>
     </div>
 
     <div class="opcoes" v-if="area === 'backend' || area === 'fullstack'">
         
-      <label><input type="checkbox" /> Node</label>
-      <label><input type="checkbox" /> Php</label>
-      <label><input type="checkbox" /> Laravel</label>
-      <label><input type="checkbox" /> Java</label>
+      <label><input type="checkbox" value="Node" v-model="skills"/> Node</label>
+      <label><input type="checkbox" value="Php" v-model="skills"/> Php</label>
+      <label><input type="checkbox" value="Laravel" v-model="skills"/> Laravel</label>
+      <label><input type="checkbox" value="Java" v-model="skills"/> Java</label>
     </div>
 
     
-
-    <textarea cols="30" rows="10">Digite aqui sua carta de apresentação</textarea>
+    <label for="apresentacao">Carta de apresentação:</label>
+    <textarea id="apresentacao" cols="30" rows="10" v-model="apresentacao">aaaa</textarea>
 
     <button type="submit">Cadastrar</button>
   </form>
@@ -63,6 +63,8 @@ export default {
       phone: "",
       area: "",
       nivel: "",
+      skills: [],
+      apresentacao: ''
     };
   },
 };
@@ -78,13 +80,29 @@ export default {
 }
 
 form {
+    margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  width: 50%;
 }
 
 .opcoes {
     display: flex;
     flex-direction: column;
 
+}
+
+button {
+    color: black;
+    background-color: cadetblue;
+    font-weight: bold;
+    width: 30%;
+    height: 30px;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(121, 190, 192);
 }
 </style>
