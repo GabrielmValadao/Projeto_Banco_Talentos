@@ -1,7 +1,7 @@
 <template>
   <h1 class="titulo">Cadastro de Talentos</h1>
 
-  <form>
+  <form @submit.prevent="submit">
     <label for="name">Nome completo</label>
     <input type="text" id="name" v-model="name" />
 
@@ -54,6 +54,9 @@
 </template>
 
 <script>
+
+import * as yup from 'yup';
+
 export default {
   data() {
     return {
@@ -69,6 +72,17 @@ export default {
   },
 
   method: {
+    submit() {
+      const schema = yup.object().shape({
+        name: yup.string().required("Nome é obrigatório!"),
+        email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
+        date_birth: yup.date().required("Selecione uma data válida"),
+        phone: yup.number().required("Informe seu numero de telefone")
+      })
+
+      }
+    },
+
     watch: {
         area(newValue, oldValue) {
             if(newValue !== oldValue)
@@ -76,7 +90,7 @@ export default {
         }
     }
   }
-};
+
 </script>
 
 <style scoped>

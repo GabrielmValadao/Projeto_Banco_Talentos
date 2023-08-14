@@ -42,6 +42,8 @@
     <router-view></router-view>
 </template>
 
+
+
 <style scoped>
     .lista {
   display: flex;
