@@ -69,7 +69,7 @@ export default {
   },
 
   method: {
-    whatch: {
+    watch: {
         area(newValue, oldValue) {
             if(newValue !== oldValue)
             this.skills = []
