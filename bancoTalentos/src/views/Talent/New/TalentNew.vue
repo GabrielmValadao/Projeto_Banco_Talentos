@@ -67,6 +67,15 @@ export default {
       apresentacao: ''
     };
   },
+
+  method: {
+    whatch: {
+        area(newValue, oldValue) {
+            if(newValue !== oldValue)
+            this.skills = []
+        }
+    }
+  }
 };
 </script>
 
