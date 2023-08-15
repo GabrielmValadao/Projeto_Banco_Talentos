@@ -71,7 +71,7 @@ export default {
     };
   },
 
-  method: {
+  methods: {
     submit() {
       try {
         const schema = yup.object().shape({
