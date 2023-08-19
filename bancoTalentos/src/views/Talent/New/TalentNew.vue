@@ -83,21 +83,21 @@
 </template>
 
 <script>
-import * as yup from "yup"
-import { captureErrorYup } from "../../../utils/captureErrorsYup"
-import axios from 'axios'
+import * as yup from "yup";
+import { captureErrorYup } from "../../../utils/captureErrorsYup";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      name: '',
-      email: '',
-      date_birth: '',
-      phone: '',
-      area: '',
-      nivel: '',
+      name: "",
+      email: "",
+      date_birth: "",
+      phone: "",
+      area: "",
+      nivel: "",
       skills: [],
-      apresentacao: '',
+      apresentacao: "",
       errors: {},
     };
   },
@@ -111,8 +111,8 @@ export default {
             .string()
             .email("E-mail inválido")
             .required("E-mail é obrigatório"),
-          date_birth: yup.date().required("Selecione uma data válida"),
-          phone: yup.number().required("Informe seu numero de telefone"),
+
+          phone: yup.string().required("Informe seu numero de telefone"),
           area: yup.string().required("Informe sua área de interesse!"),
           nivel: yup.string().required("Informe seu nível de conhecimento!"),
           skills: yup.string().required("Informe suas habilidades"),
@@ -130,10 +130,10 @@ export default {
           },
           //pega todos os erros do try
           { abortEarly: false }
-        )
+        );
 
         axios({
-          url: 'http://localhost:5173/', 
+          url: "http://localhost:5173/",
           method: "POST",
           data: {
             name: this.name,
@@ -143,32 +143,31 @@ export default {
             area: this.area,
             nivel: this.nivel,
             skills: this.skills,
-            bio: this.apresentacao
-          }
+            bio: this.apresentacao,
+          },
         })
+          .then(() => {
+            alert("Cadastrado com sucesso!");
+          })
 
-        .then(() => {
-          alert('Cadastrado com sucesso!')
-        })
-
-        .catch(() => {
-          alert('Erro ao efetuar o cadastro!')
-               })
+          .catch(() => {
+            alert("Erro ao efetuar o cadastro!");
+          });
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           // captura o erro para informar na tela
           this.errors = captureErrorYup(error);
         }
       }
-    }
+    },
   },
 
   watch: {
     area(newValue, oldValue) {
       if (newValue !== oldValue) this.skills = [];
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
