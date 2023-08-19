@@ -83,21 +83,21 @@
 </template>
 
 <script>
-import * as yup from "yup";
-import { captureErrorYup } from "../../../utils/captureErrorsYup";
-import axios from "axios";
+import * as yup from "yup"
+import { captureErrorYup } from "../../../utils/captureErrorsYup"
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      name: "",
-      email: "",
-      date_birth: "",
-      phone: "",
-      area: "",
-      nivel: "",
+      name: '',
+      email: '',
+      date_birth: '',
+      phone: '',
+      area: '',
+      nivel: '',
       skills: [],
-      apresentacao: "",
+      apresentacao: '',
       errors: {},
     };
   },
@@ -130,9 +130,10 @@ export default {
           },
           //pega todos os erros do try
           { abortEarly: false }
-        );
+        )
 
         axios({
+          url: 'http://localhost:5173/', 
           method: "POST",
           data: {
             name: this.name,
@@ -143,23 +144,31 @@ export default {
             nivel: this.nivel,
             skills: this.skills,
             bio: this.apresentacao
-          },
-        });
+          }
+        })
+
+        .then(() => {
+          alert('Cadastrado com sucesso!')
+        })
+
+        .catch(() => {
+          alert('Erro ao efetuar o cadastro!')
+               })
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           // captura o erro para informar na tela
           this.errors = captureErrorYup(error);
         }
       }
-    },
+    }
   },
 
   watch: {
     area(newValue, oldValue) {
       if (newValue !== oldValue) this.skills = [];
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>
