@@ -33,30 +33,30 @@
       {{ this.errors.area }}
     </span>
     <p>Selecione suas habilidades:</p>
-    
+
     <div class="opcoes" v-if="area === 'frontend' || area === 'fullstack'">
       <label
         ><input type="checkbox" value="Html" v-model="skills" /> Html</label
       >
       <label><input type="checkbox" value="Css" v-model="skills" /> Css</label>
       <label
-      ><input type="checkbox" value="JavaScript" v-model="skills" />
-      JavaScript</label
+        ><input type="checkbox" value="JavaScript" v-model="skills" />
+        JavaScript</label
       >
       <label><input type="checkbox" value="Vue" v-model="skills" /> Vue</label>
     </div>
-    
+
     <div class="opcoes" v-if="area === 'backend' || area === 'fullstack'">
       <label
-      ><input type="checkbox" value="Node" v-model="skills" /> Node</label
+        ><input type="checkbox" value="Node" v-model="skills" /> Node</label
       >
       <label><input type="checkbox" value="Php" v-model="skills" /> Php</label>
       <label
-      ><input type="checkbox" value="Laravel" v-model="skills" />
-      Laravel</label
+        ><input type="checkbox" value="Laravel" v-model="skills" />
+        Laravel</label
       >
       <label
-      ><input type="checkbox" value="Java" v-model="skills" /> Java</label
+        ><input type="checkbox" value="Java" v-model="skills" /> Java</label
       >
     </div>
     <label for="nivel-profissional">Nível Profissional</label>
@@ -85,7 +85,7 @@
 <script>
 import * as yup from "yup";
 import { captureErrorYup } from "../../../utils/captureErrorsYup";
-import axios from 'axios' 
+import axios from "axios";
 
 export default {
   data() {
@@ -132,7 +132,19 @@ export default {
           { abortEarly: false }
         );
 
-
+        axios({
+          method: "POST",
+          data: {
+            name: this.name,
+            email: this.email,
+            date_birth: this.data_birth,
+            phone: this.phone,
+            area: this.area,
+            nivel: this.nivel,
+            skills: this.skills,
+            bio: this.apresentacao
+          },
+        });
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           // captura o erro para informar na tela
