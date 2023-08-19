@@ -56,6 +56,7 @@
 <script>
 
 import * as yup from 'yup'
+import { captureErrorYup } from '../../../utils/captureErrorsYup'
 
 export default {
   data() {
@@ -91,11 +92,14 @@ export default {
           phone: this.phone,
           area: this.area,
           nivel: this.nivel,
-          skills: this.skills
+          skills: this.skills,
         })
       }
-      catch(erro) {
-        alert("Erro no formulario")
+      catch(error) {
+        if (error instanceof yup.ValidationError) {
+          // captura o erro para informar na tela 
+          this.errors = captureErrorYup(error)
+        }
       }
       }
     },
