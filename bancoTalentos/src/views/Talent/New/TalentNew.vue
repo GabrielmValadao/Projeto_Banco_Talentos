@@ -132,9 +132,7 @@ export default {
           { abortEarly: false }
         );
 
-        axios({
-          url: "http://localhost:5173/",
-          method: "POST",
+        axios.post(`http://localhost:50001/talentos`,{
           data: {
             name: this.name,
             email: this.email,
@@ -144,7 +142,7 @@ export default {
             nivel: this.nivel,
             skills: this.skills,
             bio: this.apresentacao,
-          },
+          }
         })
           .then(() => {
             alert("Cadastrado com sucesso!");
