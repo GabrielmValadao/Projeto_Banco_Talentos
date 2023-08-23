@@ -1,14 +1,14 @@
 {
     "talentos": [
         {
-            "name": "name",
-            "email": "email",
-            "date_birth": "date_birth",
-            "phone": "phone",
-            "area": "area",
-            "nivel": "nivel",
-            "skills": "skills",
-            "bio": "apresentacao"
+            "name": "",
+            "email": "",
+            "date_birth": "",
+            "phone": "",
+            "area": "",
+            "nivel": "",
+            "skills": "",
+            "bio": ""
         }
         ]
 }

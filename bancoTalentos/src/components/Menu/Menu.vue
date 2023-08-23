@@ -1,7 +1,7 @@
 <template>
     <header>
     <ul class="lista">
-      <router-link to="/" class="item-lista">
+      <router-link to="/" exact-active-class="active" class="item-lista">
         <li>
           <h2>Home</h2>
           <img
@@ -41,6 +41,7 @@
   </template>
 
 <style scoped>
+
 .lista {
 display: flex;
 justify-content: space-between;

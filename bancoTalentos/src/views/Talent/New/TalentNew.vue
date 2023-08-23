@@ -132,7 +132,7 @@ export default {
           { abortEarly: false }
         );
 
-        axios.post(`http://localhost:50001/talentos`,{
+        axios.post(`http://localhost:50001/talentos`, novoTalento) ({
           data: {
             name: this.name,
             email: this.email,
