@@ -145,7 +145,8 @@ export default {
           }
         })
           .then(() => {
-            alert("Cadastrado com sucesso!");
+            alert('Cadastrado com sucesso!')
+            this.$router.push('/')
           })
 
           .catch(() => {
