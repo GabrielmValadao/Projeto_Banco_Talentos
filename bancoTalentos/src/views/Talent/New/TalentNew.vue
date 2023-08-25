@@ -3,28 +3,52 @@
 
   <form @submit.prevent="submit">
     <label for="name">Nome completo</label>
-    <input type="text" id="name" v-model="name" />
+    <input
+      type="text"
+      id="name"
+      v-model="name"
+      :class="{ inputError: this.errors.name }"
+    />
     <span>
       {{ this.errors.name }}
     </span>
 
     <label for="email">Email</label>
-    <input type="text" id="email" v-model="email" />
+    <input
+      type="text"
+      id="email"
+      v-model="email"
+      :class="{ inputError: this.errors.email }"
+    />
     <span>
       {{ this.errors.email }}
     </span>
     <label for="data-nascimento">Data de Nascimento</label>
-    <input type="date" id="data-nascimento" v-model="date_birth" />
+    <input
+      type="date"
+      id="data-nascimento"
+      v-model="date_birth"
+      :class="{ inputError: this.errors.date_birth }"
+    />
     <span>
       {{ this.errors.date_birth }}
     </span>
     <label for="whatsapp">Whatsapp</label>
-    <input type="text" id="whatsapp" v-model="phone" />
+    <input
+      type="text"
+      id="whatsapp"
+      v-model="phone"
+      :class="{ inputError: this.errors.phone }"
+    />
     <span>
       {{ this.errors.phone }}
     </span>
     <label for="area-interesse">Área de Interesse</label>
-    <select id="area-interesse" v-model="area">
+    <select
+      id="area-interesse"
+      v-model="area"
+      :class="{ inputError: this.errors.area }"
+    >
       <option value="frontend">Frontend</option>
       <option value="backend">Backend</option>
       <option value="fullstack">Fullstack</option>
@@ -60,7 +84,11 @@
       >
     </div>
     <label for="nivel-profissional">Nível Profissional</label>
-    <select id="nivel-profissional" v-model="nivel">
+    <select
+      id="nivel-profissional"
+      v-model="nivel"
+      :class="{ inputError: this.errors.nivel }"
+    >
       <option value="junior">Junior</option>
       <option value="pleno">Pleno</option>
       <option value="senior">Senior</option>
@@ -111,11 +139,10 @@ export default {
             .string()
             .email("E-mail inválido")
             .required("E-mail é obrigatório"),
-
           phone: yup.string().required("Informe seu numero de telefone"),
           area: yup.string().required("Informe sua área de interesse!"),
           nivel: yup.string().required("Informe seu nível de conhecimento!"),
-          skills: yup.string().required("Informe suas habilidades"),
+          skills: yup.array().required("Informe suas habilidades"),
         });
 
         schema.validateSync(
@@ -132,21 +159,21 @@ export default {
           { abortEarly: false }
         );
 
-        axios.post(`http://localhost:50001/talentos`, novoTalento) ({
-          data: {
+          const novoTalento = {
             name: this.name,
             email: this.email,
-            date_birth: this.data_birth,
+            date_birth: this.date_birth,
             phone: this.phone,
             area: this.area,
             nivel: this.nivel,
             skills: this.skills,
-            bio: this.apresentacao,
-          }
-        })
+            apresentacao: this.apresentacao
+          };
+
+        axios.post(`http://localhost:50001/talentos`, novoTalento) 
+            
           .then(() => {
-            alert('Cadastrado com sucesso!')
-            this.$router.push('/')
+            alert("Cadastrado com sucesso!");
           })
 
           .catch(() => {
@@ -213,5 +240,9 @@ button:hover {
 span {
   color: red;
   padding: 5px;
+}
+
+.inputError {
+  border: 1px solid red;
 }
 </style>

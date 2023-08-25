@@ -1,14 +1,34 @@
 {
-    "talentos": [
-        {
-            "name": "",
-            "email": "",
-            "date_birth": "",
-            "phone": "",
-            "area": "",
-            "nivel": "",
-            "skills": "",
-            "bio": ""
-        }
-        ]
+  "talentos": [
+    {
+      "name": "Gabriel Valadão",
+      "email": "gabrielneny51@gmail.com",
+      "date_birth": "1998-05-12",
+      "phone": "51980579171",
+      "area": "frontend",
+      "nivel": "junior",
+      "skills": [
+        "JavaScript",
+        "Html",
+        "Css",
+        "Vue"
+      ],
+      "apresentacao": "Olá meu nome é Gabriel, sou aluno do curso DevInHouse, realizado pela instituição Senai",
+      "id": 1
+    },
+    {
+      "name": "Milena Haeser",
+      "email": "milena.haeser@gmail.com",
+      "date_birth": "1999-11-23",
+      "phone": "999999999",
+      "area": "frontend",
+      "nivel": "junior",
+      "skills": [
+        "Html",
+        "JavaScript"
+      ],
+      "apresentacao": "Olá, meu nome é Milena!",
+      "id": 2
+    }
+  ]
 }
